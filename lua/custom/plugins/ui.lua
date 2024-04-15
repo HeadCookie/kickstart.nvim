@@ -66,14 +66,11 @@ return {
     },
   },
 
-  -- {
-  --   'LazyVim/LazyVim',
-  --   opts = {
-  --     colorscheme = 'catppuccin',
-  --   },
-  -- },
-
-  { 'echasnovski/mini.align', version = '*' },
+  {
+    'stevearc/dressing.nvim',
+    lazy = true,
+    opts = {},
+  },
 
   {
     'craftzdog/solarized-osaka.nvim',
