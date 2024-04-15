@@ -7,6 +7,7 @@ return {
   -- Terminal
   vim.keymap.set('n', '<leader>ft', '<cmd>ToggleTerm<cr>', { desc = 'Open terminal' }),
   vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide terminal' }),
+  vim.keymap.set('n', 'q', '<cmd>close<cr>', { desc = 'Hide terminal' }),
 
   -- LSP
   vim.keymap.set('n', '<leader>cm', '<cmd>Mason<cr>', { desc = 'Mason' }),
