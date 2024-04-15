@@ -4,6 +4,9 @@ return {
   vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' }),
   vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' }),
 
+  --Telescope
+  vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { desc = '[B]rowse files' }),
+
   -- Terminal
   vim.keymap.set('n', '<leader>ft', '<cmd>ToggleTerm<cr>', { desc = 'Open terminal' }),
   vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide terminal' }),
