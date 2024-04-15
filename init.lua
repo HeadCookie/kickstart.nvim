@@ -268,13 +268,13 @@ require('lazy').setup({
         map("n", "[h", gs.prev_hunk, "Prev Hunk")
         map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
         map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-        map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
-        map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-        map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-        map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
-        map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
-        map("n", "<leader>ghd", gs.diffthis, "Diff This")
-        map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+        map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
+        map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
+        map("n", "<leader>gR", gs.reset_buffer, "Reset Buffer")
+        map("n", "<leader>gp", gs.preview_hunk_inline, "Preview Hunk Inline")
+        map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
+        map("n", "<leader>gd", gs.diffthis, "Diff This")
+        map("n", "<leader>gD", function() gs.diffthis("~") end, "Diff This ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
     },
@@ -308,6 +308,7 @@ require('lazy').setup({
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]indows', _ = 'which_key_ignore' },
+        ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
       }
     end,
   },
@@ -388,16 +389,16 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Search [H]elp' })
-      vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Search [K]eymaps' })
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Search [F]iles' })
-      vim.keymap.set('n', '<leader>,', builtin.find_files, { desc = 'Search [F]iles' })
+      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search [H]elp' })
+      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search [K]eymaps' })
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find [F]iles' })
+      vim.keymap.set('n', '<leader>,', builtin.find_files, { desc = 'Find [F]iles' })
       vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Search Select Telescope' })
-      vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Search current [W]ord' })
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Search by [G]rep' })
-      vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Search [D]iagnostics' })
-      vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Search [R]esume' })
-      vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Search current [W]ord' })
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search by [G]rep' })
+      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search [D]iagnostics' })
+      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search [R]esume' })
+      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[<leader>] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
@@ -514,7 +515,7 @@ require('lazy').setup({
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          map('<leader>ca', vim.lsp.buf.code_action, 'Code action')
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
@@ -827,8 +828,15 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
-      -- require('mini.animate').setup()
+      require('mini.animate').setup()
       require('mini.pairs').setup()
+      require('mini.align').setup()
+      require('mini.indentscope').setup {
+        opts = {
+          symbol = '│',
+          options = { try_as_border = true },
+        },
+      }
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
