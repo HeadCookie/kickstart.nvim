@@ -67,7 +67,6 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          -- ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ['<Tab>'] = tab_mapping,
           ['<S-Tab>'] = s_tab_mapping,
           ['<C-y>'] = cmp.mapping.confirm {
@@ -82,15 +81,6 @@ return {
           { name = 'path' },
           -- { name = "copilot" },
         },
-        -- formatting = {
-        --   format = function(_, item)
-        --     local icons = require("lazyvim.config").icons.kinds
-        --     if icons[item.kind] then
-        --       item.kind = icons[item.kind] .. item.kind
-        --     end
-        --     return item
-        --   end,
-        -- },
         experimental = {
           ghost_text = {
             hl_group = 'CmpGhostText',
