@@ -39,4 +39,5 @@ return {
 
   -- Misc
   vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>', { desc = 'Make it rain' }),
+  vim.keymap.set('x', '<leader>us', '<cmd>CodeSnap<cr>', { desc = 'Create code snap' }),
 }
