@@ -7,6 +7,9 @@ return {
   --Telescope
   vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { desc = '[B]rowse files' }),
 
+  --Oil
+  vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' }),
+
   -- Terminal
   vim.keymap.set('n', '<leader>ft', '<cmd>ToggleTerm<cr>', { desc = 'Open terminal' }),
   vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide terminal' }),
