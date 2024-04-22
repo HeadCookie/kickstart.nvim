@@ -3,6 +3,7 @@ return {
   -- Save file
   vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' }),
   vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' }),
+  vim.keymap.set('n', '<leader>uz', '<cmd>ZenMode<cr>', { desc = 'Activate ZenMode' }),
 
   -- AI
   vim.keymap.set({ 'n', 'v' }, '<leader>cg', ':Gen<CR>'),
