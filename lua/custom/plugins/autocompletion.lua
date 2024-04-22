@@ -1,13 +1,21 @@
 return {
   -- auto pairs
   {
-    'echasnovski/mini.pairs',
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+  },
+
+  {
+    'windwp/nvim-ts-autotag',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
+    lazy = true,
     event = 'VeryLazy',
-    opts = {
-      mappings = {
-        ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\`].', register = { cr = false } },
-      },
-    },
   },
 
   {
