@@ -63,6 +63,13 @@ return {
         end
       end, { 'i', 's' })
 
+      cmp.setup {
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+      }
+
       return {
         completion = {
           completeopt = 'menu,menuone,noinsert',
